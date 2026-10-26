@@ -1,6 +1,6 @@
 # INFOMAN_TEAMPLETE
 Felix Christian Cabaliw
 Veniz Somera
-Caedy Joahera Baula
+Caedy Johaera Baula
 Lenyen Paragas
 Aeyouline Arceo
