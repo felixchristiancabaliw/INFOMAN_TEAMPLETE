@@ -2,7 +2,6 @@
 // DASHBOARD (Hope, Inc. ERP)
 // Load it from an HTML page with:  <script src="dashboard.js"></script>
 
-
 //  Page title and mobile settings
 document.title = "HOPE, Inc. ERP Dashboard";
 
