@@ -1,6 +1,5 @@
 
-// SECTION 1: DASHBOARD (Hope, Inc. ERP)
-// Converted from HTML into JavaScript.
+// DASHBOARD (Hope, Inc. ERP)
 // Load it from an HTML page with:  <script src="dashboard.js"></script>
 
 
