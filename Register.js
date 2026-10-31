@@ -1,6 +1,5 @@
 
 //  REGISTER (Hope, Inc. ERP)
-// Converted from HTML into JavaScript.
 // Load it from an HTML page with:  <script src="register.js"></script>
 
 //  Page title and mobile settings
