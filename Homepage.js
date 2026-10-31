@@ -1,6 +1,5 @@
 
 // HOMEPAGE (Hope, Inc. ERP)
-// Converted from HTML into JavaScript.
 // Load it from an HTML page with:  <script src="homepage.js"></script>
 
 //  Page title and mobile settings 
