@@ -1,8 +1,6 @@
 
 //  LOGIN (SIGN IN) (Hope, Inc. ERP)
-// Converted from HTML into JavaScript.
 // Load it from an HTML page with:  <script src="login.js"></script>
-
 
 //  Page title and mobile settings 
 document.title = "Hope, Inc. ERP - Sign In";
