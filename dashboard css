@@ -91,3 +91,12 @@ body { font-family: Arial, sans-serif; background: #f5e0ff; color: #222; }
     .stats { grid-template-columns: 1fr; }
     .action-buttons { grid-template-columns: 1fr; }
 }
+
+/* Views and tables */
+.view[hidden] { display: none; }
+.view-title { font-family: Georgia, serif; font-weight: normal; font-size: 17px; margin: 0 0 12px 4px; }
+.data-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #c9c3cc; border-radius: 11px; overflow: hidden; font-size: 12px; }
+.data-table th { background: #d095f0; color: #392044; text-align: left; }
+.data-table th, .data-table td { padding: 8px 10px; border-bottom: 1px solid #eee; }
+.badge-ok { color: #387c36; } .badge-off { color: #b33; }
+.report-box { background: white; border: 1px solid #c9c3cc; border-radius: 11px; padding: 14px; font-size: 13px; line-height: 1.8; }
