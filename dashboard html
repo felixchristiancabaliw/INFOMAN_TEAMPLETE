@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPE, Inc. ERP Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">H</div>
+            <span>Hope, Inc. ERP</span>
+        </div>
+
+        <nav class="navigation">
+            <a href="dashboard.html" class="nav-link active"><span class="nav-icon">⌂</span> Dashboard</a>
+
+            <p class="module-label">Modules</p>
+
+            <a href="#" class="nav-link"><span class="nav-icon">👥</span> Customers</a>
+            <a href="#" class="nav-link"><span class="nav-icon">♧</span> Products</a>
+            <a href="#" class="nav-link"><span class="nav-icon">📈</span> Sales</a>
+            <a href="#" class="nav-link"><span class="nav-icon">▤</span> Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="profile-icon">♙</div>
+                <div class="profile-name">
+                    <strong>Name</strong>
+                    <small>USER</small>
+                </div>
+                <button class="logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="main">
+
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <span class="user-badge">USER</span>
+        </header>
+
+        <div class="content">
+
+            <section class="welcome">
+                <h2>Welcome back, User!</h2>
+                <p>
+                    You have access to the core modules assigned to you.
+                    Contact an Admin for elevated permissions.
+                </p>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <p>Total Customers</p>
+                    <h3>5</h3>
+                    <small>1 inactive</small>
+                </div>
+                <div class="stat-card">
+                    <p>Products</p>
+                    <h3>400</h3>
+                    <small>↑ 7 new this week</small>
+                </div>
+                <div class="stat-card">
+                    <p>Open Orders</p>
+                    <h3>100</h3>
+                    <small>↑ 10% vs last week</small>
+                </div>
+                <div class="stat-card">
+                    <p>Revenue (MTD)</p>
+                    <h3>$99.1k</h3>
+                    <small>↑ 20% vs last month</small>
+                </div>
+            </section>
+
+            <section class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="#">View Customers</a>
+                    <a href="#">Manage Products</a>
+                    <a href="#">Human Resources</a>
+                    <a href="#">Sales Pipeline</a>
+                    <a href="#">Reports</a>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
