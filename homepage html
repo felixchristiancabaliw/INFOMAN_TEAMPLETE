@@ -14,8 +14,8 @@
             <h1>HOPE, Inc. ERP</h1>
         </div>
         <nav class="header-buttons">
-            <a href="login.html">Sign In</a>
-            <a href="register.html">Register</a>
+            <a href="login.html" id="navLogin">Sign In</a>
+            <a href="register.html" id="navRegister">Register</a>
         </nav>
     </header>
 
@@ -29,8 +29,8 @@
                 Stay organized, track your business activities, and manage your daily operations with ease.
             </p>
             <div class="hero-buttons">
-                <a href="login.html">Sign In to dashboard</a>
-                <a href="register.html" class="register-button">Register</a>
+                <a href="login.html" id="heroLogin">Sign In to dashboard</a>
+                <a href="register.html" class="register-button" id="heroRegister">Register</a>
             </div>
         </section>
 
@@ -49,8 +49,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Hope, Inc. ERP System &middot; All rights reserved</p>
+        <p>&copy; <span id="year">2026</span> Hope, Inc. ERP System &middot; All rights reserved</p>
     </footer>
 
+    <script src="homepage.js"></script>
 </body>
 </html>
