@@ -1,77 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create an Account - Hope, Inc.</title>
+  <title>Register | HOPE, Inc. ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="split-body">
-  <div class="split-left">
-    <div class="logo">
-      <div class="logo-icon-light">H</div>
-      <span class="logo-text-light">Hope, Inc.</span>
-    </div>
-    <div class="split-left-content">
-      <span class="badge-text">ERP MANAGEMENT SYSTEM</span>
-      <h1>One workspace.<br>A clearer way<br>to manage.</h1>
-      <hr class="divider">
-      <p>Bring your records, people, and operations together. Built around the way your team works.</p>
-    </div>
-    <div class="split-left-footer">
-      <span>🛡️ Private workspace - Authorized access only</span>
-    </div>
-  </div>
-
-  <div class="split-right">
-    <div class="auth-box">
-      <span class="auth-tag">CREATE AN ACCOUNT</span>
-      <h2>Create an account</h2>
-      <p class="auth-sub">Join Hope, Inc. ERP</p>
-
-      <form id="registerForm" onsubmit="handleRegister(event)">
-        <div class="form-row-2col">
-          <div class="form-group">
-            <label for="fname">First name</label>
-            <input type="text" id="fname" required>
-          </div>
-          <div class="form-group">
-            <label for="lname">Last name</label>
-            <input type="text" id="lname" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="reg-password">Password</label>
-          <input type="password" id="reg-password" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </form>
-
-      <div class="or-divider"><span>or</span></div>
-
-      <button type="button" class="btn btn-google btn-block" onclick="alert('Google Auth Simulation')">
-        <span class="g-icon">G</span> Continue with Google
-      </button>
-
-      <div class="info-callout">
-        <span class="icon">🔒</span>
-        <div>Need an account or help signing in?<br>Contact your administrator.</div>
-      </div>
-
-      <div class="auth-footer-text">
-        Hope, Inc. - ERP Management System<br>
-        Already have an account? <a href="login.html" class="link-green">Sign In</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="page.js"></script>
+<body data-page="register">
+  <main id="app"><div class="loading">Loading HOPE, Inc. ERP…</div></main>
+  <script src="app.js"></script>
 </body>
 </html>
