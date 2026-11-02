@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Hope, Inc.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="split-body">
+  <div class="split-left">
+    <div class="logo">
+      <div class="logo-icon-light">H</div>
+      <span class="logo-text-light">Hope, Inc.</span>
+    </div>
+    <div class="split-left-content">
+      <span class="badge-text">ERP MANAGEMENT SYSTEM</span>
+      <h1>One workspace.<br>A clearer way<br>to manage.</h1>
+      <hr class="divider">
+      <p>Bring your records, people, and operations together. Built around the way your team works.</p>
+    </div>
+    <div class="split-left-footer">
+      <span>🛡️ Private workspace - Authorized access only</span>
+    </div>
+  </div>
+
+  <div class="split-right">
+    <div class="auth-box">
+      <span class="auth-tag">WELCOME TO HOPE</span>
+      <h2>Sign in to your workspace</h2>
+      <p class="auth-sub">Enter your credentials to continue.</p>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="username">Username / Role Preset</label>
+          <input type="text" id="username" placeholder="Enter 'admin', 'superadmin', or 'user'" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-input">
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button type="button" class="eye-btn" onclick="togglePassword('password')">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember"> Remember me
+          </label>
+          <a href="forgotpass.html" class="link-muted">Forgot password?</a>
+        </div>
+
+        <p class="auth-redirect">Dont have an account? <a href="register.html" class="link-green">Register</a></p>
+
+        <button type="submit" class="btn btn-primary btn-block">Sign in &rarr;</button>
+      </form>
+
+      <div class="info-callout">
+        <span class="icon">🔒</span>
+        <div>Need an account or help signing in?<br>Contact your administrator.</div>
+      </div>
+
+      <div class="auth-footer-text">
+        Hope, Inc. - ERP Management System
+      </div>
+    </div>
+  </div>
+
+  <script src="page.js"></script>
+</body>
+</html>
