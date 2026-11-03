@@ -1,10 +1,3 @@
-# INFOMAN_TEAMPLETE
-Felix Christian Cabaliw
-Veniz Somera
-Caedy Johaera Baula
-Lenyen Paragas
-Aeyouline Arceo
-
 ## Database Setup (Without Docker)
 
 1. Create a project in [Supabase](https://supabase.com).
