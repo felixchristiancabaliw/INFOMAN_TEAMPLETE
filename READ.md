@@ -1,1 +1,3 @@
+PROJECT DESCRIPTION
+
 Hope ERP is an Enterprise Resource Planning application designed to streamline internal management operations. This setup phase focuses on establishing a robust, production-ready backend infrastructure featuring multi-tiered authentication (Email/Password & Google OAuth), cloud database management with Supabase, and automated CI/CD pipelines via GitHub Actions.
