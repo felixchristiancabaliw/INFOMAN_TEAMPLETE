@@ -1,0 +1,12 @@
+-- Idagdag ang mga bagong fields mula sa bagong Admin UI
+alter table public.products add column if not exists effective_date date default current_date;
+alter table public.payments add column if not exists notes text;
+alter table public.employees add column if not exists gender text, add column if not exists birth_date date, add column if not exists sep_date date;
+alter table public.user_profiles add column if not exists status text default 'Active', add column if not exists permissions jsonb default '{}'::jsonb;
+
+-- Payagan ang Superadmin na mag-update ng roles/status/permissions ng users
+drop policy if exists "superadmin manage profiles" on public.user_profiles;
+create policy "superadmin manage profiles" on public.user_profiles
+for update to authenticated
+using (public.current_role() = 'Superadmin')
+with check (public.current_role() = 'Superadmin');
