@@ -1,0 +1,9 @@
+do $$
+declare t text;
+begin
+  foreach t in array array['user_profiles','customers','products','price_history','departments','jobs','job_history','employees','sales','sale_items','payments']
+  loop
+    execute format('drop policy if exists "temp_testing_access" on public.%I', t);
+    execute format('create policy "temp_testing_access" on public.%I for all to public using (true) with check (true)', t);
+  end loop;
+end $$;
