@@ -1,0 +1,35 @@
+Human Resources – Jobs and Departments
+
+Issue: Missing Active/Inactive status option.
+Required Fix:
+- Add an ACTIVE/INACTIVE button or toggle in the Edit functionality.
+- Allow users to update the status of jobs and departments.
+
+2. Price History
+Issue: Missing product management options.
+Required Fix:
+- Add, Delete and Restore functionality.
+
+Allow editing of the following product details:
+- Product Name
+- Price
+- SKU
+- Unit of Measure
+
+3. Calendar UI
+
+Issue: Calendar UI needs improvement.
+
+Required Fix:
+- Implement a dedicated calendar UI for all applicable modules.
+- Ensure users can select dates using the calendar.
+
+4. Forgot Password
+Issue: Limitations in the Forgot Password functionality.
+Required Fix:
+- Review and address the existing limitations of the password recovery process.
+
+5. Login and Registration
+Issue: Limitations in the Login and Registration functionality.
+Required Fix:
+- Review and address the existing limitations affecting user login and registration.
