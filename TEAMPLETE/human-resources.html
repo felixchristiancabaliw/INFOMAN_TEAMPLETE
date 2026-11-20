@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Human Resources — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="human-resources">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Human Resources</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div>
+          <div class="eyebrow">WORKSPACE / SUPPORTING STATE</div>
+          <h1 class="page-title">Human Resources</h1>
+          <p id="hr-page-subtitle" class="page-subtitle">Organize your team with a clear job and department register.</p>
+        </div>
+        <button id="btn-hr-add" class="btn-primary">+ Add New</button>
+      </div>
+
+      <div class="tab-bar">
+        <button id="tab-hr-emp" class="tab-btn active">Employees (0)</button>
+        <button id="tab-hr-job" class="tab-btn">Jobs (0)</button>
+        <button id="tab-hr-dept" class="tab-btn">Departments (0)</button>
+      </div>
+
+      <div class="erp-table-wrap mb-4">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span id="hr-section-title" class="text-base font-bold">Employees</span>
+            <span id="hr-records-badge" class="badge-count">0 records</span>
+            <div class="flex items-center gap-1 p-1 rounded-lg border ml-2" style="background-color:#f4f1e8; border-color:var(--border-color);">
+              <button id="filter-hr-active" class="btn-secondary text-xs py-1 px-2.5">Active (0)</button>
+              <button id="filter-hr-inactive" class="btn-secondary text-xs py-1 px-2.5 border-transparent bg-transparent">Inactive (0)</button>
+              <button id="filter-hr-all" class="btn-secondary text-xs py-1 px-2.5 border-transparent bg-transparent">All (0)</button>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <input type="text" id="hr-search" placeholder="Search records" class="form-input" style="padding:6px 12px; width:210px; font-size:12px;" />
+            <button id="btn-hr-edit" class="btn-secondary text-xs" disabled>✎ Edit</button>
+            <button id="btn-hr-delete" class="btn-secondary text-xs" disabled>🗑️ Delete</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="erp-table">
+            <thead id="hr-thead"></thead>
+            <tbody id="hr-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div id="hr-footer-count">0 records</div>
+          <div class="flex items-center gap-2">
+            <span id="hr-page-info">No pages</span>
+            <button id="hr-prev" class="page-nav-btn" disabled>‹</button>
+            <button id="hr-next" class="page-nav-btn" disabled>›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-banner">
+        <span id="hr-callout-icon">💼</span>
+        <div>
+          <div id="hr-callout-title" class="font-semibold">Start with your organizational structure</div>
+          <div id="hr-callout-desc">Add departments and jobs manually, then assign them to employee records.</div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>

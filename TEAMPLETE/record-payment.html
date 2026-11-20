@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Record a Payment — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="record-payment">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Sales</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Record a payment</h1><p class="page-subtitle">Enter a payment against a saved sale. All entry fields are blank.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to sale details</a>
+      </div>
+      <form id="payment-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Payment information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">Choose the sale and enter the payment details manually.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div><label class="form-label">Sale *</label><select id="pay-sale" required class="form-input"></select></div>
+            <div><label class="form-label">Payment date *</label><input type="date" id="pay-date" required class="form-input" /></div>
+            <div><label class="form-label">Amount *</label><input type="number" step="0.01" id="pay-amount" required class="form-input" /></div>
+            <div><label class="form-label">Payment method *</label><select id="pay-method" required class="form-input"><option value="">Select method</option><option value="Cash">Cash</option><option value="Bank Transfer">Bank Transfer</option><option value="Check">Check</option><option value="Credit Card">Credit Card</option></select></div>
+            <div><label class="form-label">Reference</label><input type="text" id="pay-ref" class="form-input" /></div>
+            <div><label class="form-label">Notes</label><textarea id="pay-notes" rows="2" class="form-input"></textarea></div>
+          </div>
+        </div>
+        <div class="callout-banner mb-5"><span>💳</span><div><div class="font-semibold">A payment needs a saved sale</div><div>Create a sale before recording a payment against it.</div></div></div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="sales-details.html" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save payment</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

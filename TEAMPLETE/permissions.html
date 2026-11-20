@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Permissions — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="permissions">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">User Management</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Permissions</h1><p class="page-subtitle">Assign module access and permitted actions explicitly. Nothing is granted by default.</p></div>
+        <div class="flex gap-2">
+          <a href="admin-dashboard.html" class="btn-secondary">← Back to dashboard</a>
+          <button id="btn-save-perms" class="btn-primary" disabled>Save permissions</button>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <a id="tab-perm-accounts" href="account-details.html" class="tab-btn">Accounts (0)</a>
+        <a href="roles-access.html" class="tab-btn">Roles</a>
+        <a href="permissions.html" class="tab-btn active">Permissions</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end mb-5">
+        <div><label class="form-label">Account</label><select id="perm-account-select" class="form-input"></select></div>
+        <div><label class="form-label">Role</label><select id="perm-role-select" class="form-input"><option value="">Select role</option><option value="Superadmin">Superadmin</option><option value="Admin">Admin</option><option value="User">User</option></select></div>
+        <div><button id="btn-clear-selection" class="btn-secondary">Clear selection</button></div>
+      </div>
+      <div class="erp-table-wrap mb-5">
+        <div class="erp-table-toolbar"><span class="text-sm font-bold">Module & action access</span><span id="perm-selected-badge" class="badge-count">No account selected</span></div>
+        <table class="erp-table">
+          <thead><tr><th>MODULE</th><th class="text-center">View</th><th class="text-center">Add</th><th class="text-center">Edit</th><th class="text-center">Delete</th><th class="text-center">Restore</th><th class="text-center">Print / PDF</th></tr></thead>
+          <tbody id="perm-tbody"></tbody>
+        </table>
+      </div>
+      <div class="callout-banner"><span>🛡️</span><div><div class="font-semibold">No permissions assigned</div><div>Select a saved account to configure access. The module labels above are configuration options, not seeded records.</div></div></div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

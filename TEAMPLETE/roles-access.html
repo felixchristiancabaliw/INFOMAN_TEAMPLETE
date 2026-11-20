@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Management — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="roles-access">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Administration</span><span>/</span><strong id="topbar-breadcrumb">User Management</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Superadmin">Superadmin</option><option value="Admin">Administration</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div>
+          <div class="eyebrow">ADMINISTRATION / USER MANAGEMENT</div>
+          <h1 class="page-title">User Management</h1>
+          <p class="page-subtitle">Superadmin: manage all accounts, assign Admin role, and set rights for Users.</p>
+        </div>
+        <div class="flex gap-2">
+          <a href="superadmin-dashboard.html" class="btn-secondary">← Back to dashboard</a>
+          <button id="btn-um-add" class="btn-primary">+ Add User</button>
+        </div>
+      </div>
+
+      <div class="erp-table-wrap mb-5">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold">Accounts</span>
+            <span id="um-count-badge" class="badge-count">0 records</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="um-search" placeholder="Search name, email, or role..." class="form-input" style="padding:6px 12px; width:230px; font-size:12px;" />
+          </div>
+        </div>
+
+        <table class="erp-table">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>ROLE</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="um-tbody"></tbody>
+        </table>
+
+        <div class="table-footer">
+          <div id="um-footer-count">0 records</div>
+          <div class="flex items-center gap-2">
+            <span id="um-page-info">No pages</span>
+            <button id="um-prev" class="page-nav-btn" disabled>‹</button>
+            <button id="um-next" class="page-nav-btn" disabled>›</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · Role & rights control</div></footer>
+  </div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>

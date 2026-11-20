@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="admin-dashboard">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Dashboard</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">HOPE, INC. / MANAGEMENT</div><h1 class="page-title" id="dash-heading">Admin dashboard</h1><p class="page-subtitle">An overview of your records, workspace modules, and operations. Your workspace starts at zero.</p></div>
+        <button id="btn-add-new" class="btn-primary">+ Add New</button>
+      </div>
+      <div class="panel mb-5 flex items-center justify-between flex-wrap gap-3 py-3">
+        <span class="text-xs font-semibold" style="color:var(--text-secondary);">Quick Actions:</span>
+        <div class="flex gap-2 flex-wrap">
+          <a href="customer-details.html" class="btn-secondary text-xs">+ Customer</a>
+          <a href="product-details.html" class="btn-secondary text-xs">+ Product</a>
+          <a id="qa-hr-btn" href="employee-details.html" class="btn-secondary text-xs">+ Human Resources</a>
+          <a href="new-sale.html" class="btn-secondary text-xs">+ New Sale</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <a href="customers.html" class="stat-card no-underline text-inherit"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Customers</span><span>👥</span></div><div class="flex items-baseline justify-between mt-4"><span id="kpi-customers" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No records</span></div></a>
+        <a href="product-details.html" class="stat-card no-underline text-inherit"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Products</span><span>📦</span></div><div class="flex items-baseline justify-between mt-4"><span id="kpi-products" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No records</span></div></a>
+        <a id="kpi-hr-card" href="human-resources.html" class="stat-card no-underline text-inherit"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Employees</span><span>🪪</span></div><div class="flex items-baseline justify-between mt-4"><span id="kpi-employees" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No records</span></div></a>
+        <a href="sales-details.html" class="stat-card no-underline text-inherit"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Sales</span><span>🧾</span></div><div class="flex items-baseline justify-between mt-4"><span id="kpi-sales" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No records</span></div></a>
+      </div>
+      <div class="panel mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div><h2 class="text-base font-bold">Workspace modules</h2><p class="text-xs" style="color:var(--text-secondary);">Select any module below to manage records or jump directly to data entry.</p></div>
+          <span class="badge-count">6 Modules</span>
+        </div>
+        <div id="admin-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
+        <div class="panel lg:col-span-2 min-h-[200px] flex flex-col justify-between"><div class="flex justify-between"><span class="text-sm font-semibold">Sales overview</span><span class="text-xs" style="color:var(--text-muted);">All time</span></div><div id="sales-overview-body" class="empty-state-box py-8"><div class="empty-icon-box">📈</div><div class="text-xs">No records yet. Click Add New to get started.</div></div></div>
+        <div class="panel min-h-[200px] flex flex-col justify-between"><div class="flex justify-between"><span class="text-sm font-semibold">Product activity</span><span class="text-xs" style="color:var(--text-muted);">All time</span></div><div id="product-activity-body" class="empty-state-box py-8"><div class="empty-icon-box">📦</div><div class="text-xs">No records yet. Click Add New to get started.</div></div></div>
+      </div>
+      <div class="panel mb-5"><div class="flex justify-between mb-2"><span class="text-sm font-semibold">Recent activity</span><span id="activity-count" class="text-xs" style="color:var(--text-muted);">0 entries</span></div><div id="recent-activity-list" class="text-center py-4 text-xs" style="color:var(--text-secondary);">No records yet. Click Add New to get started.</div></div>
+      <div class="callout-banner"><span>ℹ️</span><div><div class="font-semibold">Ready for your team's first record</div><div>All records are entered manually. Add a customer, product, or employee to begin building your workspace.</div></div></div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="product-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Products</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Product details</h1><p class="page-subtitle">Enter a new product or update a selected product's information.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to products</a>
+      </div>
+      <div class="tab-bar">
+        <a href="products.html" class="tab-btn">Product register</a>
+        <a href="product-details.html" class="tab-btn active">Product details</a>
+        <a href="price-history.html" class="tab-btn">Price history</a>
+      </div>
+      <form id="product-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Product information</div>
+          <p class="text-xs mb-5" style="color:var(--text-secondary);">Define the product and its pricing. No details or prices have been entered.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div><label class="form-label">Product name *</label><input type="text" id="prod-name" required class="form-input" /></div>
+            <div><label class="form-label">SKU *</label><input type="text" id="prod-sku" required class="form-input" /></div>
+            <div><label class="form-label">Category</label><input type="text" id="prod-cat" class="form-input" /></div>
+            <div><label class="form-label">Unit of measure</label><input type="text" id="prod-uom" class="form-input" /></div>
+            <div><label class="form-label">Unit price *</label><input type="number" step="0.01" id="prod-price" required class="form-input" /></div>
+            <div><label class="form-label">Effective date</label><input type="date" id="prod-date" class="form-input" /></div>
+          </div>
+          <div><label class="form-label">Description</label><textarea id="prod-desc" rows="3" class="form-input"></textarea></div>
+        </div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="products.html" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save product</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
