@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Register — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="products">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Products</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Product register</h1><p class="page-subtitle">Browse, search, and manage all recorded products and pricing.</p></div>
+        <div class="flex gap-2">
+          <a href="admin-dashboard.html" class="btn-secondary">← Back to products</a>
+          <a href="product-details.html" class="btn-primary">+ Add New</a>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <a href="products.html" class="tab-btn active">Product register</a>
+        <a href="product-details.html" class="tab-btn">Product details</a>
+        <a href="price-history.html" class="tab-btn">Price history</a>
+      </div>
+      <div class="erp-table-wrap mb-5">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2"><span class="text-sm font-bold">Registered products</span><span id="prod-count-badge" class="badge-count">0 records</span></div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="prod-search" placeholder="Search products" class="form-input" style="padding:6px 12px; width:210px; font-size:12px;" />
+            <button type="button" id="btn-prod-edit" class="btn-secondary text-xs" disabled>✎ Edit</button>
+            <button type="button" id="btn-prod-delete" class="btn-secondary text-xs" disabled>🗑️ Delete</button>
+          </div>
+        </div>
+        <table class="erp-table">
+          <thead><tr><th style="width:36px;"><input type="checkbox" disabled /></th><th>Product ID</th><th>Product name</th><th>SKU</th><th>Category</th><th>Unit price</th><th>Effective date</th></tr></thead>
+          <tbody id="prod-tbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <div id="prod-footer-count">0 records</div>
+          <div class="flex items-center gap-2"><span id="prod-page-info">No pages</span><button id="prod-prev" class="page-nav-btn" disabled>‹</button><button id="prod-next" class="page-nav-btn" disabled>›</button></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>

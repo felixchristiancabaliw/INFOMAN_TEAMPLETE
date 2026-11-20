@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="customer-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Customers</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Customer details</h1><p class="page-subtitle">Add a customer or update a selected record. All fields shown here are blank.</p></div>
+        <div class="flex gap-2">
+          <a id="btn-form-active" href="customers.html?tab=Active" class="btn-secondary">Active (0)</a>
+          <a id="btn-form-deleted" href="customers.html?tab=Deleted" class="btn-secondary">Deleted (0)</a>
+          <a href="admin-dashboard.html" class="btn-secondary">← Back to customers</a>
+        </div>
+      </div>
+      <form id="customer-form">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+          <div class="panel">
+            <div class="text-sm font-bold mb-1">Customer information</div>
+            <p class="text-xs mb-5" style="color:var(--text-secondary);">Enter the details used to identify and contact this customer.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div><label class="form-label">Customer name *</label><input type="text" id="cust-name" required class="form-input" /></div>
+              <div><label class="form-label">Company name *</label><input type="text" id="cust-company" required class="form-input" /></div>
+              <div><label class="form-label">Email address *</label><input type="email" id="cust-email" required class="form-input" /></div>
+              <div><label class="form-label">Phone number</label><input type="text" id="cust-phone" class="form-input" /></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="text-sm font-bold mb-1">Address & notes</div>
+            <p class="text-xs mb-5" style="color:var(--text-secondary);">Optional details to support your customer records.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div><label class="form-label">Street address</label><input type="text" id="cust-street" class="form-input" /></div>
+              <div><label class="form-label">City</label><input type="text" id="cust-city" class="form-input" /></div>
+              <div><label class="form-label">State / Province</label><input type="text" id="cust-state" class="form-input" /></div>
+              <div><label class="form-label">Postal code</label><input type="text" id="cust-postal" class="form-input" /></div>
+            </div>
+            <div><label class="form-label">Notes</label><textarea id="cust-notes" rows="3" class="form-input"></textarea></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="customers.html" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save customer</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

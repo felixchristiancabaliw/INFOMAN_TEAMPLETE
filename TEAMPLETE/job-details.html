@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Job Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="job-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Human Resources</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Job details</h1><p class="page-subtitle">Add or update a job definition for your organization.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to jobs</a>
+      </div>
+      <form id="job-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Job information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">No job definitions have been added to the register.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div><label class="form-label">Job title *</label><input type="text" id="job-title" required class="form-input" /></div>
+            <div><label class="form-label">Department</label><select id="job-dept" class="form-input"></select></div>
+          </div>
+          <div><label class="form-label">Job description</label><textarea id="job-desc" rows="3" class="form-input"></textarea></div>
+        </div>
+        <div class="callout-banner mb-5"><span>💼</span><div><div class="font-semibold">Department assignments are optional</div><div>A department can be assigned after it has been created. Adding a job does not create an employee or grant account access.</div></div></div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="human-resources.html?tab=jobs" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save job</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

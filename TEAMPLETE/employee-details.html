@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="employee-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Human Resources</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Employee details</h1><p class="page-subtitle">Create or update an employee record. No employee information has been entered.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to employees</a>
+      </div>
+      <form id="employee-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Personal information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">Use the employee's actual contact information.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div><label class="form-label">First name *</label><input type="text" id="emp-first" required class="form-input" /></div>
+            <div><label class="form-label">Last name *</label><input type="text" id="emp-last" required class="form-input" /></div>
+            <div><label class="form-label">Email address</label><input type="email" id="emp-email" class="form-input" /></div>
+            <div><label class="form-label">Phone number</label><input type="text" id="emp-phone" class="form-input" /></div>
+          </div>
+        </div>
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Employment information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">Create jobs and departments before making assignments.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div><label class="form-label">Job</label><select id="emp-job" class="form-input"></select></div>
+            <div><label class="form-label">Department</label><select id="emp-dept" class="form-input"></select></div>
+            <div><label class="form-label">Start date</label><input type="date" id="emp-start" class="form-input" /></div>
+            <div><label class="form-label">Employment status</label><select id="emp-status" class="form-input"><option value="">Select status</option><option value="Active">Active</option><option value="Probation">Probation</option><option value="On Leave">On Leave</option></select></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="human-resources.html?tab=employees" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save employee</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

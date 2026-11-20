@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Superadmin Dashboard — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="superadmin-dashboard">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Superadmin dashboard</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Superadmin">Superadmin</option><option value="Admin">Administration</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">HOPE, INC. / SYSTEM ADMINISTRATION</div><h1 class="page-title">Superadmin dashboard</h1><p class="page-subtitle">Full system access. Manage every module, account, role, and system setting.</p></div>
+        <a href="account-details.html" class="btn-primary">+ Add New account</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+        <div class="stat-card"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Admin accounts</span><span>🛡️</span></div><div class="flex items-baseline justify-between mt-4"><span id="sa-kpi-admins" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No accounts</span></div></div>
+        <div class="stat-card"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>User accounts</span><span>👤</span></div><div class="flex items-baseline justify-between mt-4"><span id="sa-kpi-users" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">No accounts</span></div></div>
+        <div class="stat-card"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>System records</span><span>🗄️</span></div><div class="flex items-baseline justify-between mt-4"><span id="sa-kpi-records" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">All modules · No records</span></div></div>
+        <div class="stat-card"><div class="flex justify-between text-xs" style="color:var(--text-secondary);"><span>Deleted records</span><span>🗑️</span></div><div class="flex items-baseline justify-between mt-4"><span id="sa-kpi-deleted" class="text-3xl font-bold">0</span><span class="text-xs" style="color:var(--text-muted);">Nothing to restore</span></div></div>
+      </div>
+      <div class="panel mb-6">
+        <div class="flex justify-between items-center mb-4">
+          <div><span class="text-base font-bold">Manage all modules</span><p class="text-xs mt-0.5" style="color:var(--text-secondary);">Overview of every system module, what it manages, and direct shortcuts.</p></div>
+          <span class="badge-count">Full access</span>
+        </div>
+        <div id="sa-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+      <div class="flex justify-between items-center mb-2"><h2 class="text-lg font-bold">Accounts & access</h2><a href="roles-access.html" class="btn-secondary text-xs">🛡️ Manage Roles</a></div>
+      <div class="tab-bar" id="sa-account-tabs">
+        <button class="tab-btn active" data-tab="all">All accounts (0)</button>
+        <button class="tab-btn" data-tab="Admin">Admins (0)</button>
+        <button class="tab-btn" data-tab="User">Users (0)</button>
+        <button class="tab-btn" data-tab="Deleted">Deleted accounts (0)</button>
+      </div>
+      <div class="erp-table-wrap mb-4">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2"><span class="text-sm font-bold">Admin & User accounts</span><span id="sa-acc-badge" class="badge-count">0 records</span></div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="sa-acc-search" placeholder="Search accounts" class="form-input" style="padding:6px 12px; width:200px; font-size:12px;" />
+            <a href="roles-access.html" class="btn-secondary text-xs">Assign Role</a>
+            <a href="account-details.html" class="btn-secondary text-xs">Edit</a>
+            <button id="sa-btn-delete" class="btn-secondary text-xs" disabled>Delete</button>
+          </div>
+        </div>
+        <table class="erp-table">
+          <thead><tr><th style="width:36px;"><input type="checkbox" /></th><th>Account ID</th><th>Username</th><th>Email address</th><th>Role</th><th class="col-status-stamp">Status</th><th class="col-status-stamp">Stamp</th></tr></thead>
+          <tbody id="sa-accounts-tbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <div>Stamp shows who last changed a record and when.</div>
+          <div class="flex items-center gap-2"><span id="sa-page-label">No pages</span><button id="sa-prev-page" class="page-nav-btn" disabled>‹</button><button id="sa-next-page" class="page-nav-btn" disabled>›</button></div>
+        </div>
+      </div>
+      <div class="callout-banner mb-7"><span>🛡️</span><div>Superadmin: full system access · Admin: manages records and access rights · User: assigned modules and actions only. No accounts or permissions are preloaded.</div></div>
+      <div id="settings" class="flex justify-between items-start mb-4">
+        <div><h2 class="text-lg font-bold">System Settings</h2><p class="text-xs" style="color:var(--text-secondary);">Workspace-wide configuration. Only Superadmin can change these settings.</p></div>
+        <button id="btn-save-settings" class="btn-primary">✓ Save Settings</button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="panel">
+          <div class="text-sm font-bold mb-4">⚙️ General & security</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
+            <div><label class="form-label">Organization name</label><input type="text" id="set-org-name" class="form-input" /></div>
+            <div><label class="form-label">Record entry</label><select id="set-record-entry" class="form-input"><option value="Manual entry only">Manual entry only</option><option value="Manual + CSV Import">Manual + CSV Import</option></select></div>
+            <div><label class="form-label">Session timeout</label><select id="set-timeout" class="form-input"><option value="">Select duration</option><option value="15 minutes">15 minutes</option><option value="30 minutes">30 minutes</option><option value="1 hour">1 hour</option></select></div>
+            <div><label class="form-label">Default account role</label><select id="set-default-role" class="form-input"><option value="">Select role</option><option value="User">User</option><option value="Admin">Admin</option></select></div>
+          </div>
+          <div class="text-[11px]" style="color:var(--text-muted);">New accounts receive no module permissions until access is explicitly assigned.</div>
+        </div>
+        <div class="panel flex flex-col justify-between">
+          <div>
+            <div class="text-sm font-bold mb-4">👁️ Records & audit visibility</div>
+            <div class="flex items-center justify-between py-2.5 border-b" style="border-color:var(--border-color);">
+              <div><div class="text-xs font-semibold">Show Status and Stamp columns</div><div class="text-[11px]" style="color:var(--text-secondary);">Display record state, change author, and timestamp.</div></div>
+              <label class="toggle-switch"><input type="checkbox" id="set-show-stamp" /><span class="toggle-slider"></span></label>
+            </div>
+            <div class="flex items-center justify-between py-2.5">
+              <div><div class="text-xs font-semibold">Retain deleted records</div><div class="text-[11px]" style="color:var(--text-secondary);">Keep deleted entries available for review and restoration.</div></div>
+              <label class="toggle-switch"><input type="checkbox" id="set-retain-deleted" /><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-4 mt-3 border-t" style="border-color:var(--border-color);">
+            <span id="sa-deleted-summary" class="text-xs" style="color:var(--text-secondary);">0 deleted records · All modules</span>
+            <a href="customers.html?tab=Deleted" class="btn-secondary text-xs">🗑️ View Deleted Records</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
