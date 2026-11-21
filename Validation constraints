@@ -1,0 +1,20 @@
+-- 1. Gawing lowercase at linisin ang kasalukuyang unit sa products
+update public.products
+set unit = case
+  when unit is null or trim(unit) = '' then 'pc'
+  when lower(trim(unit)) in ('pc', 'pcs', 'piece', 'pieces') then 'pc'
+  when lower(trim(unit)) in ('box', 'boxes') then 'box'
+  when lower(trim(unit)) in ('pack', 'packs') then 'pack'
+  when lower(trim(unit)) in ('kg', 'kilo', 'kilogram') then 'kg'
+  when lower(trim(unit)) in ('liter', 'liters', 'l') then 'liter'
+  when lower(trim(unit)) in ('set', 'sets') then 'set'
+  when lower(trim(unit)) in ('night', 'nights') then 'night'
+  when lower(trim(unit)) in ('room', 'rooms') then 'room'
+  when lower(trim(unit)) in ('service', 'services', 'svc') then 'service'
+  else 'pc'
+end;
+
+-- 2. Ikabit na ang CHECK constraint (case-insensitive)
+alter table public.products drop constraint if exists chk_products_unit_valid;
+alter table public.products add constraint chk_products_unit_valid
+  check (lower(trim(unit)) in ('pc', 'pcs', 'box', 'pack', 'kg', 'liter', 'set', 'night', 'room', 'service'));
