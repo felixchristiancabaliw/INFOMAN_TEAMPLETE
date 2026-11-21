@@ -1,0 +1,41 @@
+-- 1. Siguraduhing naka-create ang function 
+create or replace function public.get_product_price_as_of(p_product_id uuid, p_as_of_date date default current_date)
+returns numeric(12,2)
+language sql
+stable
+as $$
+  select coalesce(
+    (
+      select ph.new_price
+      from public.price_history ph
+      where ph.product_id = p_product_id
+        and ph.effective_date <= p_as_of_date
+      order by ph.effective_date desc, ph.created_at desc
+      limit 1
+    ),
+    (
+      select p.unit_price
+      from public.products p
+      where p.id = p_product_id
+    ),
+    0.00
+  );
+$$;
+
+-- 2. I-update ang database statistics para sa index tuning
+analyze public.customers;
+analyze public.products;
+analyze public.price_history;
+
+-- 3. Test ng "Current price as of a given date" (may ::date cast)
+select
+  sku,
+  product_name,
+  public.get_product_price_as_of(id, '2026-11-15'::date) as price_nov_15,
+  public.get_product_price_as_of(id, '2026-12-15'::date) as price_dec_15
+from public.products;
+
+-- 4. Search Performance Check (EXPLAIN ANALYZE)
+explain analyze
+select * from public.active_customers
+where customer_name ilike '%Veniz%';
