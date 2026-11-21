@@ -1,0 +1,25 @@
+-- 1. Siguraduhing ON DELETE RESTRICT ang foreign key sa sales (customer_id)
+alter table public.sales drop constraint if exists sales_customer_id_fkey;
+alter table public.sales add constraint sales_customer_id_fkey
+  foreign key (customer_id) references public.customers(id) on delete restrict;
+
+-- 2. Siguraduhing ON DELETE RESTRICT ang foreign key sa sale_items (product_id)
+alter table public.sale_items drop constraint if exists sale_items_product_id_fkey;
+alter table public.sale_items add constraint sale_items_product_id_fkey
+  foreign key (product_id) references public.products(id) on delete restrict;
+
+-- 3. I-verify ang delete rules ng foreign keys sa database
+select
+  tc.table_name as child_table,
+  kcu.column_name as child_column,
+  ccu.table_name as parent_table,
+  rc.delete_rule
+from information_schema.table_constraints tc
+join information_schema.key_column_usage kcu
+  on tc.constraint_name = kcu.constraint_name and tc.table_schema = kcu.table_schema
+join information_schema.constraint_column_usage ccu
+  on ccu.constraint_name = tc.constraint_name and ccu.table_schema = tc.table_schema
+join information_schema.referential_constraints rc
+  on rc.constraint_name = tc.constraint_name and rc.constraint_schema = tc.table_schema
+where tc.constraint_type = 'FOREIGN KEY'
+  and ccu.table_name in ('customers', 'products');
