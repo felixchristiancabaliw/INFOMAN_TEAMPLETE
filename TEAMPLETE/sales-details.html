@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sale Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="sales-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Reports</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Sale details</h1><p class="page-subtitle">Choose a saved sale or filter by date to review line items and payment records.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to sales</a>
+      </div>
+      <div class="tab-bar">
+        <a id="tab-sd-records" href="new-sale.html" class="tab-btn">Sales records (0)</a>
+        <a href="sales-details.html" class="tab-btn active">Sale details</a>
+        <a id="tab-sd-payments" href="record-payment.html" class="tab-btn">Payments (0)</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
+        <div><label class="form-label">Filter by date</label><input type="date" id="sd-filter-date" class="form-input" /></div>
+        <div><label class="form-label">Sale</label><select id="sd-sale-select" class="form-input"></select></div>
+        <div><label class="form-label">Customer</label><input type="text" id="sd-customer-display" readonly class="form-input" /></div>
+        <div><label class="form-label">Sale date</label><input type="date" id="sd-date-display" class="form-input" /></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        <div class="erp-table-wrap">
+          <div class="erp-table-toolbar"><div class="flex items-center gap-2"><span class="text-sm font-bold">Line items</span><span id="sd-items-badge" class="badge-count">0 records</span></div></div>
+          <table class="erp-table">
+            <thead><tr><th style="width:36px;"><input type="checkbox" /></th><th>Product</th><th>Quantity</th><th>Unit price</th><th>Total</th></tr></thead>
+            <tbody id="sd-items-tbody"></tbody>
+          </table>
+          <div class="table-footer"><div id="sd-items-count">0 records</div><div class="flex items-center gap-2"><span id="sd-items-page-info">No pages</span><button id="sd-items-prev" class="page-nav-btn" disabled>‹</button><button id="sd-items-next" class="page-nav-btn" disabled>›</button></div></div>
+        </div>
+        <div class="erp-table-wrap">
+          <div class="erp-table-toolbar"><div class="flex items-center gap-2"><span class="text-sm font-bold">Payments</span><span id="sd-pay-badge" class="badge-count">0 records</span></div></div>
+          <table class="erp-table">
+            <thead><tr><th style="width:36px;"><input type="checkbox" /></th><th>Date</th><th>Method</th><th>Reference</th><th>Amount</th></tr></thead>
+            <tbody id="sd-pay-tbody"></tbody>
+          </table>
+          <div class="table-footer"><div id="sd-pay-count">0 records</div><div class="flex items-center gap-2"><span id="sd-pay-page-info">No pages</span><button id="sd-pay-prev" class="page-nav-btn" disabled>‹</button><button id="sd-pay-next" class="page-nav-btn" disabled>›</button></div></div>
+        </div>
+      </div>
+      <div class="callout-banner justify-between items-center mb-2">
+        <div class="flex gap-8 text-xs">
+          <span>Sale total <strong id="sd-total" class="ml-2">0.00</strong></span>
+          <span>Paid <strong id="sd-paid" class="ml-2">0.00</strong></span>
+          <span>Balance <strong id="sd-balance" class="ml-2">0.00</strong></span>
+        </div>
+        <a id="btn-sd-add-payment" href="record-payment.html" class="btn-secondary text-xs">+ Add payment</a>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

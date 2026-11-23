@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Sale — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="new-sale">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Sales</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">New sale</h1><p class="page-subtitle">Record a sale manually. No customer, products, or amounts have been entered.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to sales</a>
+      </div>
+      <form id="new-sale-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Sale information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">Choose an existing customer and enter the sale date.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div><label class="form-label">Customer *</label><select id="sale-customer" required class="form-input"></select></div>
+            <div><label class="form-label">Sale date *</label><input type="date" id="sale-date" required class="form-input" /></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
+          <div class="lg:col-span-2 flex flex-col justify-between">
+            <div class="erp-table-wrap mb-3">
+              <div class="erp-table-toolbar"><div class="flex items-center gap-2"><span class="text-sm font-bold">Line items</span><span id="sale-lines-badge" class="badge-count">0 records</span></div></div>
+              <table class="erp-table">
+                <thead><tr><th style="width:36px;"><input type="checkbox" /></th><th>Product</th><th>Quantity</th><th>Unit price</th><th>Line total</th></tr></thead>
+                <tbody id="sale-lines-tbody"></tbody>
+              </table>
+              <div class="table-footer"><div id="sale-lines-count">0 records</div><div>No pages ‹ ›</div></div>
+            </div>
+            <div class="flex justify-between text-sm font-bold px-1"><span>Sale total</span><span id="sale-grand-total">0.00</span></div>
+          </div>
+          <div class="panel">
+            <div class="text-sm font-bold mb-1">Add a line item</div>
+            <p class="text-xs mb-4" style="color:var(--text-secondary);">All product and amount fields start blank.</p>
+            <div class="grid grid-cols-2 gap-3 mb-3">
+              <div><label class="form-label">Product *</label><select id="line-product" class="form-input"></select></div>
+              <div><label class="form-label">Quantity *</label><input type="number" id="line-qty" min="1" class="form-input" /></div>
+            </div>
+            <div class="mb-4"><label class="form-label">Unit price *</label><input type="number" step="0.01" id="line-price" class="form-input" /></div>
+            <button type="button" id="btn-add-line-item" class="btn-primary">+ Add New</button>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="sales-details.html" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save sale</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Price History — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="price-history">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Products</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Admin">Administration</option><option value="Superadmin">Superadmin</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-5">
+        <div>
+          <div class="eyebrow">WORKSPACE / SUPPORTING STATE</div>
+          <h1 class="page-title">Price history</h1>
+          <p class="page-subtitle">Review recorded price changes for a selected product.</p>
+        </div>
+        <a href="products.html" class="btn-secondary">← Back to products</a>
+      </div>
+
+      <div class="tab-bar">
+        <a href="products.html" class="tab-btn">Product register</a>
+        <a href="product-details.html" class="tab-btn">Product details</a>
+        <a href="price-history.html" class="tab-btn active">Price history</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+        <div>
+          <label class="form-label">Product</label>
+          <select id="ph-product-select" class="form-input">
+            <option value="">All products</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">From date</label>
+          <input type="date" id="ph-from" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label">To date</label>
+          <input type="date" id="ph-to" class="form-input" />
+        </div>
+      </div>
+
+      <div class="erp-table-wrap mb-4">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold">Price changes</span>
+            <span id="ph-count-badge" class="badge-count">0 records</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btn-ph-edit" class="btn-secondary text-xs" disabled>✎ Edit</button>
+          </div>
+        </div>
+        <table class="erp-table">
+          <thead>
+            <tr>
+              <th style="width:36px;"><input type="checkbox" disabled /></th>
+              <th>EFFECTIVE DATE</th>
+              <th>PREVIOUS PRICE</th>
+              <th>NEW PRICE</th>
+              <th>CHANGE</th>
+              <th>CHANGED BY</th>
+            </tr>
+          </thead>
+          <tbody id="ph-tbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <div id="ph-footer-count">0 records</div>
+          <div class="flex items-center gap-2">
+            <span id="ph-page-info">No pages</span>
+            <button id="ph-prev" class="page-nav-btn" disabled>‹</button>
+            <button id="ph-next" class="page-nav-btn" disabled>›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-banner">
+        <span>🕒</span>
+        <div>
+          <div class="font-semibold">A clear record of every price change</div>
+          <div>Review effective dates, previous prices and recorded changes for the selected product.</div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>

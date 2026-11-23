@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Details — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" /> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="account-details">
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2"><span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">User Management</strong></div>
+      <div class="flex items-center gap-3"><span>🔒 Internal workspace</span><select id="role-switcher" class="badge-count"><option value="Superadmin">Superadmin</option><option value="Admin">Administration</option><option value="User">User</option></select></div>
+    </header>
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div><div class="eyebrow">WORKSPACE / SUPPORTING STATE</div><h1 class="page-title">Account details</h1><p class="page-subtitle">Create an account or update a selected account. No account has been registered.</p></div>
+        <a href="admin-dashboard.html" class="btn-secondary">← Back to accounts</a>
+      </div>
+      <form id="account-form">
+        <div class="panel mb-5">
+          <div class="text-sm font-bold mb-1">Account information</div>
+          <p class="text-xs mb-4" style="color:var(--text-secondary);">Enter credentials and explicitly choose an account role. Nothing is selected by default.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div><label class="form-label">Username *</label><input type="text" id="acc-username" required class="form-input" /></div>
+            <div><label class="form-label">Email address *</label><input type="email" id="acc-email" required class="form-input" /></div>
+            <div><label class="form-label">Password *</label><input type="password" id="acc-pass" required class="form-input" /></div>
+            <div><label class="form-label">Confirm password *</label><input type="password" id="acc-confirm" required class="form-input" /></div>
+            <div><label class="form-label">Role *</label><select id="acc-role" required class="form-input"><option value="">Select role</option><option value="Superadmin">Superadmin</option><option value="Admin">Admin</option><option value="User">User</option></select></div>
+            <div><label class="form-label">Account status *</label><select id="acc-status" required class="form-input"><option value="">Select status</option><option value="Active">Active</option><option value="Suspended">Suspended</option></select></div>
+          </div>
+        </div>
+        <div class="callout-banner mb-5"><span>🛡️</span><div><div class="font-semibold">No default access</div><div>Available role definitions: Superadmin, Admin, User. Assign modules and actions in Permissions; creating an account does not grant default permissions.</div></div></div>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-xs" style="color:var(--text-muted);">* Required fields · Nothing has been saved.</span>
+          <div class="flex gap-2.5"><a href="roles-access.html" class="btn-secondary">Cancel</a><button type="submit" class="btn-primary">✓ Save account</button></div>
+        </div>
+      </form>
+    </main>
+    <footer class="footer-bar"><div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div><div>Manual entry · No preloaded records</div></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
