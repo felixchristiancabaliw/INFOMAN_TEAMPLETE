@@ -1,0 +1,22 @@
+-- 1. Enable extension for fast partial text search
+create extension if not exists pg_trgm;
+
+-- 2. Create Active Views for Customers and Products
+create or replace view public.active_customers as
+select id, customer_name, company_name, email, phone, street_address, city, province, postal_code, notes, status, created_at
+from public.customers
+where is_deleted = false and coalesce(status, 'Active') = 'Active';
+
+create or replace view public.active_products as
+select id, product_name, sku, category, unit, description, unit_price, current_price, effective_date, status, created_at
+from public.products
+where coalesce(status, 'Active') = 'Active';
+
+-- 3. Create Indexes for faster filtering and search
+create index if not exists idx_customers_active on public.customers (is_deleted, status);
+create index if not exists idx_customers_name_trgm on public.customers using gin (customer_name gin_trgm_ops);
+create index if not exists idx_customers_email_trgm on public.customers using gin (email gin_trgm_ops);
+
+create index if not exists idx_products_status on public.products (status);
+create index if not exists idx_products_name_trgm on public.products using gin (product_name gin_trgm_ops);
+create index if not exists idx_products_sku_trgm on public.products using gin (sku gin_trgm_ops);
