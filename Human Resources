@@ -1,0 +1,62 @@
+-- 1. DEPARTMENTS (8 records)
+INSERT INTO departments (department_name, description, status) VALUES
+('Accounting', 'Department Code: ACT', 'Active'),
+('Sales Branch 1', 'Department Code: BR1', 'Active'),
+('Sales Branch 2', 'Department Code: BR2', 'Active'),
+('Executive', 'Department Code: EXC', 'Active'),
+('Human Resource', 'Department Code: HRD', 'Active'),
+('Information Tech', 'Department Code: IT', 'Active'),
+('Payroll', 'Department Code: PAY', 'Active'),
+('Warehouse', 'Department Code: WHS', 'Active');
+
+-- 2. JOBS (14 records)
+INSERT INTO jobs (job_title, description, status) VALUES
+('President', 'Job Code: PRES', 'Active'),
+('Vice president', 'Job Code: VP', 'Active'),
+('Manager', 'Job Code: MGR', 'Active'),
+('Sales Agent 1', 'Job Code: SA1', 'Active'),
+('Sales Agent 2', 'Job Code: SA2', 'Active'),
+('Supervisor', 'Job Code: SPVR', 'Active'),
+('Clerk 1', 'Job Code: CLK1', 'Active'),
+('Clerk 2', 'Job Code: CLK2', 'Active'),
+('Programmer 1', 'Job Code: PR1', 'Active'),
+('Programmer 2', 'Job Code: PR2', 'Active'),
+('Analyst', 'Job Code: ANYS', 'Active'),
+('Accountant', 'Job Code: ACCT', 'Active'),
+('Warehouse man', 'Job Code: WMAN', 'Active'),
+('HR Specialist', 'Job Code: HRS', 'Active');
+
+-- 3. EMPLOYEES (32 records)
+INSERT INTO employees (first_name, last_name, gender, birth_date, hire_date, sep_date, status) VALUES
+('John', 'Smith', 'M', '1985-02-20', '2010-05-11', NULL, 'Active'),
+('Jane', 'Smith', 'F', '1990-05-16', '2010-05-11', NULL, 'Active'),
+('Don', 'King', 'M', '1986-02-14', '2010-06-23', NULL, 'Active'),
+('Floyd', 'Jenskin', 'M', '1990-02-20', '2010-05-30', NULL, 'Active'),
+('Bambie', 'Cerudo', 'F', '1983-06-23', '2010-05-30', NULL, 'Active'),
+('Tom', 'Davis', 'M', '1989-12-16', '2010-06-30', NULL, 'Active'),
+('Olive', 'Morris', 'F', '1991-07-21', '2010-06-30', NULL, 'Active'),
+('Maggie', 'Zulueta', 'F', '1990-08-03', '2010-07-05', '2011-03-30', 'Inactive'),
+('Nelia', 'Celestino', 'F', '1984-10-24', '2010-07-05', NULL, 'Active'),
+('Nehemiah', 'Esperanza', 'M', '1982-02-21', '2010-07-05', '2014-04-28', 'Inactive'),
+('Chelie', 'Manchester', 'F', '1988-12-07', '2010-07-05', NULL, 'Active'),
+('Nicholas', 'Kline', 'M', '1992-01-21', '2010-07-05', '2010-12-23', 'Inactive'),
+('Ivy', 'Macapagal', 'F', '1992-04-30', '2010-07-05', NULL, 'Active'),
+('Ernest', 'Blanche', 'M', '1986-12-21', '2010-07-05', NULL, 'Active'),
+('Evangeline', 'Chua', 'F', '1989-03-10', '2010-07-05', NULL, 'Active'),
+('Greta', 'Lancaster', 'F', '1987-08-17', '2010-07-05', NULL, 'Active'),
+('Nigel', 'Parks', 'M', '1993-06-23', '2010-07-05', NULL, 'Active'),
+('Voltaire', 'Carlston', 'F', '1985-06-12', '2010-07-21', NULL, 'Active'),
+('Yves', 'Silva', 'M', '1988-09-21', '2010-07-21', NULL, 'Active'),
+('William', 'Geisert', 'M', '1980-03-03', '2010-07-21', NULL, 'Active'),
+('Helena', 'Darwin', 'F', '1978-11-08', '2010-09-01', NULL, 'Active'),
+('Queen', 'Love', 'F', '1983-11-29', '2010-09-01', NULL, 'Active'),
+('Danny', 'Raven', 'M', '1984-02-15', '2010-12-03', NULL, 'Active'),
+('Clint', 'Devito', 'M', '1981-06-07', '2010-12-03', NULL, 'Active'),
+('Nancy', 'Irving', 'F', '1987-09-19', '2010-12-03', NULL, 'Active'),
+('Fergie', 'Baltimore', 'F', '1986-10-10', '2011-01-05', NULL, 'Active'),
+('Veronica', 'Jones', 'F', '1983-05-01', '2011-01-05', '2011-03-30', 'Inactive'),
+('Ursula', 'Travis', 'F', '1987-06-07', '2011-01-05', NULL, 'Active'),
+('Sylvia', 'Orleans', 'F', '1987-01-28', '2011-01-05', NULL, 'Active'),
+('Alice', 'Sy', 'F', '1984-08-13', '2011-01-05', '2011-04-20', 'Inactive'),
+('Girlie', 'De Leon', 'F', '1983-07-27', '2011-01-05', NULL, 'Active'),
+('Albert', 'Grant', 'M', '1979-05-05', '2011-01-05', NULL, 'Active');
