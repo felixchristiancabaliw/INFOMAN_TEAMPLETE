@@ -1,16 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales | HOPE, Inc. ERP</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Sales — Hope, Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page="sales">
-  <main id="app"><div class="loading">Loading HOPE, Inc. ERP…</div></main>
+  <aside class="sidebar"></aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="flex items-center gap-2">
+        <span>Workspace</span><span>/</span><strong id="topbar-breadcrumb">Sales</strong>
+      </div>
+      <div class="flex items-center gap-3">
+        <span>🔒 Internal workspace</span>
+        <select id="role-switcher" class="badge-count">
+          <option value="Admin">Administration</option>
+          <option value="Superadmin">Superadmin</option>
+          <option value="User">User</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="flex items-start justify-between mb-6">
+        <div>
+          <div class="eyebrow">WORKSPACE / SALES MANAGEMENT</div>
+          <h1 class="page-title">Sales</h1>
+          <p class="page-subtitle">Manage sales transactions and customer records.</p>
+        </div>
+        <a href="new-sale.html" id="btn-sales-new" class="btn-primary">+ New Sale</a>
+      </div>
+
+      <div class="tab-bar">
+        <button type="button" id="tab-sales-active" class="tab-btn active">Active (0)</button>
+        <button type="button" id="tab-sales-inactive" class="tab-btn">Inactive (0)</button>
+        <button type="button" id="tab-sales-all" class="tab-btn">All (0)</button>
+      </div>
+
+      <div class="erp-table-wrap">
+        <div class="erp-table-toolbar">
+          <div class="flex items-center gap-2.5">
+            <span class="text-sm font-bold">Sales records</span>
+            <span id="sales-count-badge" class="badge-count">0 records</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="sales-search" placeholder="Search sales..." class="form-input py-1.5 px-3 text-xs" style="width: 240px;" />
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="erp-table">
+            <thead>
+              <tr>
+                <th>TRANS NO</th>
+                <th>SALES DATE</th>
+                <th>CUSTOMER</th>
+                <th>EMPLOYEE</th>
+                <th>TOTAL</th>
+                <th>STATUS</th>
+                <th>STAMP</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="sales-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div id="sales-footer-count">0 records</div>
+          <div class="flex items-center gap-2">
+            <span id="sales-page-info">No pages</span>
+            <button type="button" id="sales-prev" class="page-nav-btn" disabled>‹</button>
+            <button type="button" id="sales-next" class="page-nav-btn" disabled>›</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bar">
+      <div><span class="org-name-display">Hope, Inc.</span> · ERP Management System</div>
+      <div>Manual entry · No preloaded records</div>
+    </footer>
+  </div>
+
+  <div id="modal-root"></div>
   <script src="app.js"></script>
 </body>
 </html>
