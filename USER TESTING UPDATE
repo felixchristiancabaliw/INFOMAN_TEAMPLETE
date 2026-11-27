@@ -1,0 +1,28 @@
+USER LOGIN  
+
+Dashboard 
+- Add Revenues
+
+Customer
+- Remove Deleted users next to Active
+- Edit Customer option should only include Cust No, CustName, Address and Payment Terms 
+- Add New Customer should only include Cust No, CustName, Address and Payment Terms 
+
+
+Product
+ - Remove Product details and Price History
+
+Sales 
+- New Sales tab should have Trans No
+- Add Employee (Salesperson) in new sale panel  
+- After Saving Sales it redirects to Reports page 
+- Remove Record a payment page 
+
+Reports (two page only)
+- It should only show the master list of the products (data)
+- Top Sales (From and To Dates)
+- Filter Ranking 
+- Should have a option like save pdf or print the results
+
+
+SALES AND REPORT PAGE KEEPS GOING BACK AND FORTH
