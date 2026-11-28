@@ -1,0 +1,41 @@
+SUPERADMIN
+Customer: should show status: active, inactive, all users
+
+Human resources
+Employees Page
+- Each employee has a job history that contains their eff date, job, department, salary
+- While Editing Job history it should contain Effective Date, Salary, Job and Department
+
+Sales
+- Data table should show trans no, sales date, customer, employee, total payment, status and actions.
+- New Sales tab should have Trans No
+- Add Employee (Salesperson) in new sale panel
+
+Reports should have the ff pages:
+--Top Customer by Sales(From and To Dates), Filter Ranking, should have a option like save pdf and print the results
+
+--Product Master List
+prodcode, description,unit, current price
+
+-- Top Products by sales amount
+(From and To Dates), Filter Ranking, should have a option like save pdf or print the results
+
+Active employees (Not Seperated)
+- should display the data (empno, lname, fname, gender, bdate, and hiredate.
+- should have a option like save pdf and print the results
+
+All Employees( including separated date)
+- should have a option like save pdf and print the results buttons
+-should display the data (empno, lname, fname, gender, bdate, and hiredate.
+
+Employee Job History
+- should have a dropdown option to select employee
+- should display the data such as eff date, job, department and salary
+- should have a option like save pdf and print the results buttons
+
+Top Sales
+-(From and To Dates), Filter Ranking
+-should have a option like save pdf and print the results buttons
+
+User Management
+-Actions should have Block and Unblock
