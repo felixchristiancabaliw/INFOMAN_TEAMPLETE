@@ -1,0 +1,9 @@
+ADMIN
+- Should have a user management page
+
+Customer
+- Shows status of inactive, active and all users
+- Adding/ editing a customer should include Cust No, CustName, Address and Payment Terms
+- Data table should only show Cust No, CustName, Address, Payment Terms, STAMPS and Actions
+- Instead of deleted turn it into Inactive 
+

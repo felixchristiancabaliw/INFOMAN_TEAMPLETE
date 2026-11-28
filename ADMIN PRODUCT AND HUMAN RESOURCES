@@ -1,0 +1,12 @@
+Products
+- Shows the STAMP of each product (when was it created or edited) 
+- Shows status of each user. 
+- Adding a product shows each users who are active, inactive and all users.
+- Editing a product also shows the active, inactive and all users in each category.
+
+
+Human Resources
+Employees Page 
+- Each employee has a job history that contains their eff date, job, department, salary
+- While Editing Job history it should contain Effective Date, Salary, Job and Department
+
