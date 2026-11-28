@@ -1,0 +1,5 @@
+Sales
+- Data table should show trans no, sales date, customer, employee, total payment, status and actions.
+- New Sales tab should have Trans No
+- Add Employee (Salesperson) in new sale panel  
+
