@@ -1,0 +1,12 @@
+
+To Fix:
+- Password Peek has two icons 
+- When clicking forgot password link in email it redirects to Login page 
+
+Check boxes on Customer, Product, New Sales: 
+- Check boxes when pressed cannot be all selected
+- Check box can't be clicked beside product ID, new sales, Sales detail
+
+- Reports and Sales Page are the same page
+
+(SUPERADMIN) System Settings redirects to dashboard
